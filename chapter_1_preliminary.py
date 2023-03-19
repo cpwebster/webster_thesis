@@ -1,8 +1,8 @@
-import re,random, argparse
+import re, random, argparse
 
-#looking for mutations in general across all Phytochrome genes
+#scanning for mutations in general across all Phytochrome genes
 
-#Arguments that can be altered in the terminal
+#arguments that can be altered in the terminal
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--VCF_input_file', type=str, required=True) #input file
 parser.add_argument('-o', '--parsed_output_file', type=str, required=True) #output file
@@ -36,7 +36,8 @@ else:
     print('Error: No mutations at that allele frequency')
 
 #Begin script
-#PART 1 reading in and parsing FASTA file
+
+#PART 1 reading in and parsing
 f = open(vcfIn,'r')
 lines = f.readlines()
 f.close()
@@ -55,7 +56,7 @@ for g in geno[1:]:
 
 
 #PART 2 creating output file with genes containing mutations
-#Writing samples of interest (>= _allele depth and >_% for alt min allele freq)
+#writing samples of interest (>= _allele depth and >_% for alt min allele freq)
 f = open(fileOut,"w+")
 f.write(geno[0] + '\n')
 focus = []
