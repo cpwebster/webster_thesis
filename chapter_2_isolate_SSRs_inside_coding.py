@@ -7,8 +7,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--fasta_file_name', type=str, required=True)
 parser.add_argument('-s', '--SciRoKo_output_file_name', type=str, required=True) #td file type
 parser.add_argument('-l', '--SSR_minimum_repeat', type=int) #2=dinucleotide
-parser.add_argument('-out_file', '--output_file_name', type=str, required=True) #Output file contains transcript name, motif, and positions only where SSRs occur in the coding regions
-parser.add_argument('-out_fasta', '--output_fasta_file_names', type=str, required=True) #fasta files contain full gene sequence with SSR sequences that occur in the coding regions
+#Output file contains transcript name, motif, and positions only where SSRs occur in the coding regions
+parser.add_argument('-out_file', '--output_file_name', type=str, required=True) 
+#FASTA files contain full gene sequence with SSR sequences that occur in the coding regions
+parser.add_argument('-out_fasta', '--output_fasta_file_names', type=str, required=True) 
 
 args = parser.parse_args()
 
