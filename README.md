@@ -1,18 +1,20 @@
 # webster_thesis
-This project contains 3 scripts that analyze genetic variation and markers that occur among genes. These scripts were originally developed for transcriptome parsing and filtering at a specific threshold within a subgroup of genes, such as a gene family or genes grouped by Gene Ontology, however the scripts can be easily altered for application to larger data sets. Arguments that pertain to input/output files and important parameters were included in each script.
+This project contains 3 scripts that analyze genetic variation occuring among genes in a given VCF. These scripts were originally developed for parsing and filtering at a specific threshold within a subgroup of genes, such as a gene family or genes grouped by Gene Ontology, however the scripts can be easily altered for application to larger data sets. Arguments that pertain to input/output files and allele depth and frequency parameters were included for each script.
 
 Link to written thesis:
 https://scholarworks.utep.edu/open_etd/3369/
 
 #chapter_1_preliminary.py:
 
-This script was used as a preliminary analysis for the first chapter of my thesis, it confirmed that mutations occurred among the Phytochrome gene family in the Eriophorum vaginatum transcriptome at a given threshold.
+This script reads in a VCF file, filters for Phytochrome gene mutations at a given threshold by allele depth and frequency, parses those mutations, and writes to a new VCF file.
+
+USAGE: python -i chapter_1_preliminary.py <VCF_file> -o <output_file_name> -a <allele_depth> -m <minimum_allele_frequency>
 
 #chapter_1_filter_SNPs_from_VCF.py:
 
-This script was developed to parse genes that meet specific parameters for mutation quality from a transcriptome using a VCF and FASTA file. The script reads in the sequences from the FASTA file and mutation quality and frequency from the VCF file, if the mutations fall within the given parameters, the sequence data is transformed with the mutation and written to an output directory. This output directory contains only the gene names and sequences that qualify with the threshold parameters.
+This script parses Phytochrome gene mutations that meet requirements from a VCF, reads the reference and alternate muclotides and stores the information. Then, it copies and transforms a FASTA file to contain sequence mutations stored from the VCF. Every output file contains mutated sequence data from every sample in the VCF.
 
-Script Arguments: -f FASTA file input -v VCF file input -ad Allele depth (for mutation quality) -sd Sample depth (for mutation frequency) -o Output directory name
+USAGE: python chapter_1_filter_SNPs_from_VCF.py -f <FASTA_file_input> -v <VCF_file_input> -ad <allele_depth> -sd <sample_depth> -o <output_directory_name>
 
 #chapter_2_isolate_SSRs_inside_coding.py:
 
