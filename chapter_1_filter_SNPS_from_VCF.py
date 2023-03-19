@@ -1,4 +1,4 @@
-import re,random, os, sys, argparse
+import re, random, os, sys, argparse
 
 #Arguments that can be altered in the terminal
 parser = argparse.ArgumentParser()
@@ -70,9 +70,11 @@ for s in seq:
 
 #PART 2
 #Reading in VCF and determining if allele and sample depth qualify per parameters
+
 positions = []
 
 g = ''
+
 #Reading in VCF
 #For loop to go through sites on protein
 with open(vcfIn, 'r') as fp:
@@ -138,6 +140,7 @@ with open(vcfIn, 'r') as fp:
 
 #PART 3
 #Begin code for data transformation, make 16 copies of each sequence, 2 for each sample (reference and alternate)
+
                     #Get info for all samples
                     ref = l.split('\t')[3]
                     alt = l.split('\t')[4].split(',')[0]
@@ -150,6 +153,7 @@ with open(vcfIn, 'r') as fp:
                     Boo = False
                     for t in l.split('\t')[9:]:
                         st = t.split(':')[-1].split(',')
+			
                         #assigning variables for reference and alternate nucleotides
                         trc = int(st[0])
                         tac = int(st[1])
