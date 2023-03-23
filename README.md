@@ -18,6 +18,6 @@ USAGE: python transform_FASTA_from_VCF.py -f <FASTA_file_input> -v <VCF_file_inp
 
 #isolate_SSRs_inside_coding.py:
 
-This script utilizes a SciRoKo 3.4 (Kofler et al., 2008) output file (.td) and identifies SSRs of a given length in the coding regions of genes from the input FASTA file. The script reads in the FASTA file and translates genes on each reading frame, and stores where the longest coding region occurs. The positions of the SSRs are compared with the coding region start and stop positions, and 2 output files are created. A FASTA file with seuences of coding regions where SSRs occur (designed to be aligned with Clustal Omega), and a text document that lists gene names containing SSRs in coding regions.
+This script utilizes a SciRoKo 3.4 (Kofler et al., 2008) output file (.td) and identifies SSRs of a given length in the coding regions of genes from the input FASTA file. The script reads in the FASTA file and translates genes on each reading frame, and stores where the longest coding region occurs. The positions of the SSRs are compared with the coding region start and stop positions, and 2 output files are created. A FASTA file with sequences of coding regions where SSRs occur (designed to be aligned with Clustal Omega), and a text document that lists gene names containing SSRs in coding regions.
 
 USAGE: python isolate_SSRs_inside_coding.py -f <FASTA_file_input_name> -s <SciRoKo_output_file.td> -l <SSR_minimum_repeat_(dinucleotide=2)> -out_file <output_file_name> -out_fasta <FASTA_file_output_name>
