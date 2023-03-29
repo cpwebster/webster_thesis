@@ -4,8 +4,8 @@ import re, random, argparse
 
 #arguments that can be altered in the terminal
 parser = argparse.ArgumentParser()
-parser.add_argument('-i', '--VCF_input_file', type=str, required=True) #input file
-parser.add_argument('-o', '--parsed_output_file', type=str, required=True) #output file
+parser.add_argument('-i', '--VCF_input_file', type=str, required=True) 
+parser.add_argument('-o', '--parsed_output_file', type=str, required=True) 
 parser.add_argument('-a', '--allele_depth', type=int, required=True)
 parser.add_argument('-m', '--min_allele_freq', type=float, required=True)
 
@@ -38,10 +38,14 @@ else:
 #Begin script
 
 #PART 1 reading in and parsing
+
+#open VCF input file and read
 f = open(vcfIn,'r')
 lines = f.readlines()
 f.close()
 lines
+
+#extract genotype data from input file
 temp = ''.join(lines).split('#')[-1]
 geno = temp.strip().split('\n')
 
@@ -56,6 +60,7 @@ for g in geno[1:]:
 
 
 #PART 2 creating output file with genes containing mutations
+
 #writing samples of interest (>= _allele depth and >_% for alt min allele freq)
 f = open(fileOut,"w+")
 f.write(geno[0] + '\n')
